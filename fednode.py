@@ -24,11 +24,11 @@ SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
 FEDNODE_CONFIG_FILE = ".fednode.config"
 FEDNODE_CONFIG_PATH = os.path.join(SCRIPTDIR, FEDNODE_CONFIG_FILE)
 
-REPO_BASE_HTTPS = "https://github.com/CounterpartyXCP/{}.git"
-REPO_BASE_SSH = "git@github.com:CounterpartyXCP/{}.git"
-REPOS_BASE = ['counterparty-lib', 'counterparty-cli']
-REPOS_COUNTERBLOCK = REPOS_BASE + ['counterblock', ]
-REPOS_FULL = REPOS_COUNTERBLOCK + ['counterwallet', 'armory-utxsvr']
+REPO_BASE_HTTPS = "https://github.com/dronechain-iot/{}.git"
+REPO_BASE_SSH = "git@github.com:dronechain-iot/{}.git"
+REPOS_BASE = ['dronechain-iot-lib', 'dronechain-iot-cli']
+REPOS_COUNTERBLOCK = REPOS_BASE + ['dronechain-iot-block', ]
+REPOS_FULL = REPOS_COUNTERBLOCK + ['dronechain-iot-wallet', 'armory-utxsvr']
 
 HOST_PORTS_USED = {
     'base': [8332, 18332, 4000, 14000],
