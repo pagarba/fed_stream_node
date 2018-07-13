@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.5
 '''
-fednode.py: script to set up and manage a Counterparty federated node
+fednode.py: script to set up and manage a dronechain-iot Counterparty federated node
 '''
 
 import sys
