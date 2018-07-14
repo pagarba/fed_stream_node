@@ -18,7 +18,7 @@ import json
 
 VERSION="2.2.3"
 
-PROJECT_NAME = "federatednode"
+PROJECT_NAME = "streamiot"
 CURDIR = os.getcwd()
 SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
 FEDNODE_CONFIG_FILE = ".fednode.config"
