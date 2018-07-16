@@ -18,7 +18,7 @@ import json
 
 VERSION="2.2.3"
 
-PROJECT_NAME = "dronechain-iot"
+PROJECT_NAME = "counterparty"
 CURDIR = os.getcwd()
 SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
 FEDNODE_CONFIG_FILE = ".fednode.config"
