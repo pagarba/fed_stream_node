@@ -2,8 +2,8 @@ version: '2'
 
 # Data volumes defined in these services (which must be defined in child templates):
 # bitcoin-data
-# counterparty-data
-# counterblock-data
+# dronechain-iot-data
+# dronechain-iot-block-data
 # armory-data
 # mongodb-data
 
@@ -40,10 +40,10 @@ services:
   counterparty-base:
     image: counterparty/counterparty-server:${FEDNODE_RELEASE_TAG}
     volumes:
-      - ./src/counterparty-lib:/counterparty-lib
-      - ./src/counterparty-cli:/counterparty-cli
-      - ./config/counterparty:/root/.config/counterparty
-      - counterparty-data:/root/.local/share/counterparty
+      - ./src/dronechain-iot:/dronechain-iot-lib
+      - ./src/dronechain-iot-cli:/dronechain-iot-cli
+      - ./config/cdronechain-iot:/root/.config/dronechain-iot
+      - dronechain-iot-data:/root/.local/share/dronechain-iot
     logging:
       driver: "json-file"
       options:
@@ -57,7 +57,7 @@ services:
     ports:
       - "4000:4000"
     environment:
-      - PARAMS=--config-file=/root/.config/counterparty/server.conf
+      - PARAMS=--config-file=/root/.config/dronechain-iot/server.conf
 
   counterparty-base-testnet:
     hostname: ${HOSTNAME_BASE}-cp-t
@@ -66,14 +66,14 @@ services:
     ports:
       - "14000:14000"
     environment:
-      - PARAMS=--config-file=/root/.config/counterparty/server.testnet.conf
+      - PARAMS=--config-file=/root/.config/dronechain-iot/server.testnet.conf
 
   counterblock-base:
     image: counterparty/counterblock:${FEDNODE_RELEASE_TAG}
     volumes:
-      - ./src/counterblock:/counterblock
-      - ./config/counterblock:/root/.config/counterblock
-      - counterblock-data:/root/.local/share/counterblock
+      - ./src/dronechain-iot-block:/dronechain-iot-block
+      - ./config/dronechain-iot-block:/root/.config/dronechain-iot-block
+      - dronechain-iot-block-data:/root/.local/share/dronechain-iot-block
     logging:
       driver: "json-file"
       options:
@@ -87,7 +87,7 @@ services:
     ports:
       - "4100:4100"
     environment:
-      - PARAMS=--config-file=/root/.config/counterblock/server.conf
+      - PARAMS=--config-file=/root/.config/dronechain-iot-block/server.conf
 
   counterblock-base-testnet:
     hostname: ${HOSTNAME_BASE}-cb-t
@@ -98,7 +98,7 @@ services:
       - "14101:14101"
       - "14102:14102"
     environment:
-      - PARAMS=--config-file=/root/.config/counterblock/server.testnet.conf
+      - PARAMS=--config-file=/root/.config/dronechain-iot-block/server.testnet.conf
 
   armory-utxsvr-base:
     image: counterparty/armory-utxsvr:${FEDNODE_RELEASE_TAG}
@@ -133,9 +133,9 @@ services:
     hostname: ${HOSTNAME_BASE}-cw
     image: counterparty/counterwallet:${FEDNODE_RELEASE_TAG}
     volumes:
-      - ./src/counterwallet:/counterwallet
+      - ./src/dronechain-iot-wallet:/dronechain-iot-wallet
       - ./config/counterwallet/ssl:/ssl_config
-      - counterblock-data:/counterblock_data
+      - dronechain-iot-block-data:/dronechain-iot-block_data
     logging:
       driver: "json-file"
       options:
