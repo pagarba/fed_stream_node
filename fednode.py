@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.5
 '''
-fednode.py: script to set up and manage a dronechain-iot Counterparty federated node
+fednode.py: script to set up and manage a Counterparty federated node
 '''
 
 import sys
@@ -26,9 +26,9 @@ FEDNODE_CONFIG_PATH = os.path.join(SCRIPTDIR, FEDNODE_CONFIG_FILE)
 
 REPO_BASE_HTTPS = "https://github.com/dronechain-iot/{}.git"
 REPO_BASE_SSH = "git@github.com:dronechain-iot/{}.git"
-REPOS_BASE = ['dronechain-iot-lib', 'dronechain-iot-cli']
-REPOS_COUNTERBLOCK = REPOS_BASE + ['dronechain-iot-block', ]
-REPOS_FULL = REPOS_COUNTERBLOCK + ['dronechain-iot-wallet', 'armory-utxsvr']
+REPOS_BASE = ['counterparty-lib', 'counterparty-cli']
+REPOS_COUNTERBLOCK = REPOS_BASE + ['counterblock', ]
+REPOS_FULL = REPOS_COUNTERBLOCK + ['counterwallet', 'armory-utxsvr']
 
 HOST_PORTS_USED = {
     'base': [8332, 18332, 4000, 14000],
@@ -36,9 +36,9 @@ HOST_PORTS_USED = {
     'full': [8332, 18332, 4000, 14000, 4100, 14100, 8080, 443, 27017]
 }
 VOLUMES_USED = {
-    'base': ['bitcoin-data', 'dronechain-iot-data'],
-    'counterblock': ['bitcoin-data', 'dronechain-iot-data', 'dronechain-iot-block-data', 'mongodb-data'],
-    'full': ['bitcoin-data', 'dronechain-iot-data', 'dronechain-iot-block-data', 'mongodb-data', 'armory-data']
+    'base': ['bitcoin-data', 'counterparty-data'],
+    'counterblock': ['bitcoin-data', 'counterparty-data', 'counterblock-data', 'mongodb-data'],
+    'full': ['bitcoin-data', 'counterparty-data', 'counterblock-data', 'mongodb-data', 'armory-data']
 }
 UPDATE_CHOICES = ['counterparty', 'counterparty-testnet', 'counterblock',
                   'counterblock-testnet', 'counterwallet', 'armory-utxsvr', 'armory-utxsvr-testnet']
@@ -63,7 +63,7 @@ def parse_args():
     subparsers.required = True
 
     parser_install = subparsers.add_parser('install', help="install fednode services")
-    parser_install.add_argument("config", choices=['base', 'dronechain-iot-block', 'full'], help="The name of the service configuration to utilize")
+    parser_install.add_argument("config", choices=['base', 'counterblock', 'full'], help="The name of the service configuration to utilize")
     parser_install.add_argument("branch", choices=['master', 'develop'], help="The name of the git branch to utilize for the build (note that 'master' pulls the docker 'latest' tags)")
     parser_install.add_argument("--use-ssh-uris", action="store_true", help="Use SSH URIs for source checkouts from Github, instead of HTTPS URIs")
     parser_install.add_argument("--mongodb-interface", default="127.0.0.1",
@@ -328,7 +328,7 @@ def main():
             if service_base not in git_has_updated:
                 git_has_updated.append(service_base)
                 if service_base == 'counterparty':  # special case
-                    service_dirs = [os.path.join(SCRIPTDIR, "src", "dronechain-iot-lib"), os.path.join(SCRIPTDIR, "src", "dronechain-iot-cli")]
+                    service_dirs = [os.path.join(SCRIPTDIR, "src", "counterparty-lib"), os.path.join(SCRIPTDIR, "src", "counterparty-cli")]
                 else:
                     service_dirs = [service_base,]
                 for service_dir in service_dirs:
