@@ -103,7 +103,7 @@ On Linux and OS X, install as a non-root sudo-er from home directory.
 
 On all OS, clone federatednode repo and enter cloned directory:
 ```
-git clone https://github.com/CounterpartyXCP/federatednode.git
+git clone https://github.com/dronechain-iot/federatednode.git
 cd federatednode
 ```
 
