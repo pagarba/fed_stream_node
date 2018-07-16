@@ -328,7 +328,7 @@ def main():
             if service_base not in git_has_updated:
                 git_has_updated.append(service_base)
                 if service_base == 'counterparty':  # special case
-                    service_dirs = [os.path.join(SCRIPTDIR, "src", "counterparty-lib"), os.path.join(SCRIPTDIR, "src", "counterparty-cli")]
+                    service_dirs = [os.path.join(SCRIPTDIR, "src", "dronechain-iot-lib"), os.path.join(SCRIPTDIR, "src", "dronechain-iot-cli")]
                 else:
                     service_dirs = [service_base,]
                 for service_dir in service_dirs:
