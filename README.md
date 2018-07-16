@@ -1,8 +1,8 @@
-# Setting up a Counterparty Node
+# Setting up a StreamIOT Counterparty Node
 
 ## Introduction
 
-This document describes how one can set up their own Counterparty "Federated Node" system, on Linux, Windows or OS X.
+This document describes how one can set up their own StreamIOT Counterparty "Federated Node" system, on Linux, Windows or OS X.
 
 A Federated Node is a self-contained system that runs the some or all of the Counterparty software stack, via Docker. Each system operates as a Bitcoin and Counterparty "full node". Using this toolset, one can generally get started running the Counterparty software much quicker and more easily than a manual installation of the various components.
 
