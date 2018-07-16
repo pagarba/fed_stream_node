@@ -33,7 +33,7 @@ REPOS_FULL = REPOS_COUNTERBLOCK + ['dronechain-iot-wallet', 'armory-utxsvr']
 HOST_PORTS_USED = {
     'base': [8332, 18332, 4000, 14000],
     'counterblock': [8332, 18332, 4000, 14000, 4100, 14100, 27017],
-    'full': [8332, 18332, 4000, 14000, 4100, 14100, 80, 443, 27017]
+    'full': [8332, 18332, 4000, 14000, 4100, 14100, 8080, 443, 27017]
 }
 VOLUMES_USED = {
     'base': ['bitcoin-data', 'counterparty-data'],
