@@ -18,7 +18,7 @@ import json
 
 VERSION="2.2.3"
 
-PROJECT_NAME = "streamiot"
+PROJECT_NAME = "dronechain-iot"
 CURDIR = os.getcwd()
 SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
 FEDNODE_CONFIG_FILE = ".fednode.config"
@@ -36,9 +36,9 @@ HOST_PORTS_USED = {
     'full': [8332, 18332, 4000, 14000, 4100, 14100, 8080, 443, 27017]
 }
 VOLUMES_USED = {
-    'base': ['bitcoin-data', 'counterparty-data'],
-    'counterblock': ['bitcoin-data', 'counterparty-data', 'counterblock-data', 'mongodb-data'],
-    'full': ['bitcoin-data', 'counterparty-data', 'counterblock-data', 'mongodb-data', 'armory-data']
+    'base': ['bitcoin-data', 'dronechain-iot-data'],
+    'counterblock': ['bitcoin-data', 'dronechain-iot-data', 'dronechain-iot-block-data', 'mongodb-data'],
+    'full': ['bitcoin-data', 'dronechain-iot-data', 'dronechain-iot-block-data', 'mongodb-data', 'armory-data']
 }
 UPDATE_CHOICES = ['counterparty', 'counterparty-testnet', 'counterblock',
                   'counterblock-testnet', 'counterwallet', 'armory-utxsvr', 'armory-utxsvr-testnet']
@@ -63,7 +63,7 @@ def parse_args():
     subparsers.required = True
 
     parser_install = subparsers.add_parser('install', help="install fednode services")
-    parser_install.add_argument("config", choices=['base', 'counterblock', 'full'], help="The name of the service configuration to utilize")
+    parser_install.add_argument("config", choices=['base', 'dronechain-iot-block', 'full'], help="The name of the service configuration to utilize")
     parser_install.add_argument("branch", choices=['master', 'develop'], help="The name of the git branch to utilize for the build (note that 'master' pulls the docker 'latest' tags)")
     parser_install.add_argument("--use-ssh-uris", action="store_true", help="Use SSH URIs for source checkouts from Github, instead of HTTPS URIs")
     parser_install.add_argument("--mongodb-interface", default="127.0.0.1",
