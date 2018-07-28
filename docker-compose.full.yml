@@ -82,7 +82,7 @@ services:
       
   streamiot_mvp_1
     extends:
-      file: docker-compose.streamiot.yml
+      file: docker-compose.tmpl.yml
       service: streamiot_mvp
 
 volumes:
