@@ -23,5 +23,4 @@ sudo ln -sf `pwd`/fednode.py /usr/local/bin/fednode
 fednode install full master
 
 # start up the streamiot node
-sudo docker-compose.streamiot.yml build
-sudo docker-compose.streamiot.yml up
+sudo docker-compose -f docker-compose.streamiot.yml  up --build
