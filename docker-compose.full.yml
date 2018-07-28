@@ -80,11 +80,6 @@ services:
       - counterblock
       - counterblock-testnet
       
-  streamiot_mvp_1:
-    extends:
-       file: 
-       service: streamiot_mvp_1
-
 volumes:
   bitcoin-data:
   counterparty-data:
