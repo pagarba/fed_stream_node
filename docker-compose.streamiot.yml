@@ -7,5 +7,5 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - .:/federatednode
+      - .:/fed_stream_node
     entrypoint: ["python3", "devices.py"]
