@@ -7,5 +7,5 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - .:/streamiot_mvp_1
+      - .:/federatednode
     entrypoint: ["python3", "devices.py"]
