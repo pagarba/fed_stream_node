@@ -79,6 +79,11 @@ services:
       - redis
       - counterblock
       - counterblock-testnet
+      
+  streamiot_mvp_1
+    extends:
+      file: docker-compose.streamiot.yml
+      service: streamiot_mvp
 
 volumes:
   bitcoin-data:
@@ -86,3 +91,4 @@ volumes:
   counterblock-data:
   mongodb-data:
   armory-data:
+  streamiot_mvp_1:
