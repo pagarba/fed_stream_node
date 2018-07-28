@@ -12,7 +12,7 @@ sudo docker network prune --filter "until=72h"
 
 #spin up your docker images and run streamiot app
 #sudo docker build --no-cache -t streamiot_mvp_1
-sudo docker-compose down --remove orphans
+docker-compose down --remove orphans
 
 
 
