@@ -1,1 +1,11 @@
-sd
+version: '3'
+ 
+services:
+  device_test_1:
+    restart: always
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/streamiot_mvp_1
+    entrypoint: ["python3", "devices.py"]
