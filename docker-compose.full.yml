@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   bitcoin:
@@ -79,6 +79,11 @@ services:
       - redis
       - counterblock
       - counterblock-testnet
+      
+  streamiot_mvp_1:
+    extends:
+       file: docker-compose.tmpl.yml
+       service: streamiot_mvp_1
 
 volumes:
   bitcoin-data:
