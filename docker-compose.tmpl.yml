@@ -9,7 +9,7 @@ version: '2'
 
 services:
   bitcoin-base:
-    image: counterparty/bitcoin:${FEDNODE_RELEASE_TAG}
+    image: streamchain-iot/bitcoin:${FEDNODE_RELEASE_TAG}
     volumes:
       - ./config/bitcoin:/root/.bitcoin-config
       - bitcoin-data:/root/.bitcoin/
@@ -38,7 +38,7 @@ services:
       - PARAMS=-conf=/root/.bitcoin-config/bitcoin.testnet.conf
 
   counterparty-base:
-    image: counterparty/counterparty-server:${FEDNODE_RELEASE_TAG}
+    image: streamchain-iot/counterparty-server:${FEDNODE_RELEASE_TAG}
     volumes:
       - ./src/counterparty-lib:/counterparty-lib
       - ./src/counterparty-cli:/counterparty-cli
@@ -69,7 +69,7 @@ services:
       - PARAMS=--config-file=/root/.config/counterparty/server.testnet.conf
 
   counterblock-base:
-    image: counterparty/counterblock:${FEDNODE_RELEASE_TAG}
+    image: streamchain-iot/counterblock:${FEDNODE_RELEASE_TAG}
     volumes:
       - ./src/counterblock:/counterblock
       - ./config/counterblock:/root/.config/counterblock
@@ -101,7 +101,7 @@ services:
       - PARAMS=--config-file=/root/.config/counterblock/server.testnet.conf
 
   armory-utxsvr-base:
-    image: counterparty/armory-utxsvr:${FEDNODE_RELEASE_TAG}
+    image: streamchain-iot/armory-utxsvr:${FEDNODE_RELEASE_TAG}
     volumes:
       - ./src/armory-utxsvr:/armory-utxsvr
       - armory-data:/root/.armory
@@ -131,7 +131,7 @@ services:
 
   counterwallet-base:
     hostname: ${HOSTNAME_BASE}-cw
-    image: counterparty/counterwallet:${FEDNODE_RELEASE_TAG}
+    image: streamchain-iot/counterwallet:${FEDNODE_RELEASE_TAG}
     volumes:
       - ./src/counterwallet:/counterwallet
       - ./config/counterwallet/ssl:/ssl_config
