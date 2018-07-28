@@ -14,8 +14,7 @@ sudo docker network prune --filter "until=72h"
 #sudo docker build --no-cache -t streamiot_mvp_1
 sudo docker-compose down --remove orphans
 
-# enter fednode direcotory
-cd federatednode
+
 
 #
 sudo ln -sf `pwd`/fednode.py /usr/local/bin/fednode
