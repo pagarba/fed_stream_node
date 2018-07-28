@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python3.6
 '''
 fednode.py: script to set up and manage a Counterparty federated node
 '''
@@ -18,14 +18,14 @@ import json
 
 VERSION="2.2.3"
 
-PROJECT_NAME = "streamiot"
+PROJECT_NAME = "federatednode"
 CURDIR = os.getcwd()
 SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
 FEDNODE_CONFIG_FILE = ".fednode.config"
 FEDNODE_CONFIG_PATH = os.path.join(SCRIPTDIR, FEDNODE_CONFIG_FILE)
 
-REPO_BASE_HTTPS = "https://github.com/streamchain-iot/{}.git"
-REPO_BASE_SSH = "git@github.com:streamchain-iot/{}.git"
+REPO_BASE_HTTPS = "https://github.com/CounterpartyXCP/{}.git"
+REPO_BASE_SSH = "git@github.com:CounterpartyXCP/{}.git"
 REPOS_BASE = ['counterparty-lib', 'counterparty-cli']
 REPOS_COUNTERBLOCK = REPOS_BASE + ['counterblock', ]
 REPOS_FULL = REPOS_COUNTERBLOCK + ['counterwallet', 'armory-utxsvr']
@@ -33,7 +33,7 @@ REPOS_FULL = REPOS_COUNTERBLOCK + ['counterwallet', 'armory-utxsvr']
 HOST_PORTS_USED = {
     'base': [8332, 18332, 4000, 14000],
     'counterblock': [8332, 18332, 4000, 14000, 4100, 14100, 27017],
-    'full': [8332, 18332, 4000, 14000, 4100, 14100, 8080, 443, 27017]
+    'full': [8332, 18332, 4000, 14000, 4100, 14100, 80, 443, 27017]
 }
 VOLUMES_USED = {
     'base': ['bitcoin-data', 'counterparty-data'],
