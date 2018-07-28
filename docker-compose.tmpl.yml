@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 # Data volumes defined in these services (which must be defined in child templates):
 # bitcoin-data
