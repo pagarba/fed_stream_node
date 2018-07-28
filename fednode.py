@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python3.5
 '''
 fednode.py: script to set up and manage a Counterparty federated node
 '''
@@ -16,7 +16,7 @@ import shutil
 import json
 
 
-VERSION="2.2.3"
+VERSION="0.1.1"
 
 PROJECT_NAME = "federatednode"
 CURDIR = os.getcwd()
