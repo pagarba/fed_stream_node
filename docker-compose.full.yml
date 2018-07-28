@@ -80,7 +80,7 @@ services:
       - counterblock
       - counterblock-testnet
       
-  streamiot_mvp_1
+  streamiot_mvp_1:
     extends:
       file: docker-compose.tmpl.yml
       service: streamiot_mvp
