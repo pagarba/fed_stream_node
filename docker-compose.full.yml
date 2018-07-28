@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 services:
   bitcoin:
@@ -79,7 +79,7 @@ services:
       - redis
       - counterblock
       - counterblock-testnet
-      
+
 volumes:
   bitcoin-data:
   counterparty-data:
