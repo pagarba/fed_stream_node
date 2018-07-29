@@ -9,7 +9,7 @@
 **Getting up and running:**
 - Install Docker Toolbox - https://docs.docker.com/engine/getstarted/step_one/
 
-- Clone the streamiot_mvp_1 repository
+- Clone the fed_stream_node repository
 
 ```bash
 $ git clone https://github.com/streamchain-iot/fed_stream_node.git
