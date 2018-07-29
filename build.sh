@@ -24,3 +24,10 @@ fednode install full master
 
 # start up the streamiot node
 sudo docker-compose -f docker-compose.streamiot.yml  up --build
+
+# tail bitcoin-testnet
+fednode tail bitcoin-testnet
+
+# tail counterparty-testnet
+fednode tail counterparty-testnet
+
