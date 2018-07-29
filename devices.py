@@ -21,7 +21,8 @@ from requests.auth import HTTPBasicAuth
 #
 #Currently HTTP -- adjustable with: @app.route("/add-fednode", methods=['POST'])
 #                                   def add_fednode():
-url = "http://public.coindaddy.io:14000/"
+##url = "http://public.coindaddy.io:14000/"
+url = "0.0.0.0:14000/"
 headers = {'content-type': 'application/json'}
 auth = HTTPBasicAuth('rpc', '1234')
 
@@ -29,7 +30,8 @@ auth = HTTPBasicAuth('rpc', '1234')
 #
 #Currently HTTP -- adjustable with: @app.route("/add-fednode", methods=['POST'])
 #                                   def add_fednode():
-urlB = "http://public.coindaddy.io:18332/"
+##urlB = "http://public.coindaddy.io:18332/"
+urlB = "0.0.0.0:18332/"
 headersB = {'content-type': 'application/json'}
 authB = HTTPBasicAuth('rpc', '1234')
 
