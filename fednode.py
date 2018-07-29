@@ -18,7 +18,7 @@ import json
 
 VERSION="0.1.1"
 
-PROJECT_NAME = "fed_stream_node"
+PROJECT_NAME = "federatednode"
 CURDIR = os.getcwd()
 SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
 FEDNODE_CONFIG_FILE = ".fednode.config"
@@ -303,11 +303,11 @@ def main():
             cmd = args.cmd
         else:
             cmd = '"{}"'.format(' '.join(args.cmd).replace('"', '\\"'))
-        os.system("{} docker exec -i -t fed_stream_node_{}_1 bash -c {}".format(SUDO_CMD, args.service, cmd))
+        os.system("{} docker exec -i -t federatednode_{}_1 bash -c {}".format(SUDO_CMD, args.service, cmd))
     elif args.command == 'shell':
         container_running = is_container_running(args.service)
         if container_running:
-            os.system("{} docker exec -i -t fed_stream_node_{}_1 bash".format(SUDO_CMD, args.service))
+            os.system("{} docker exec -i -t federatednode_{}_1 bash".format(SUDO_CMD, args.service))
         else:
             print("Container is not running -- creating a transient container with a 'bash' shell entrypoint...")
             run_compose_cmd("run --no-deps --rm --entrypoint bash {}".format(args.service))
@@ -357,8 +357,8 @@ def main():
                 if service_base == 'counterwallet' and os.path.exists(os.path.join(SCRIPTDIR, "src", "counterwallet")):  # special case
                     transifex_cfg_path = os.path.join(os.path.expanduser("~"), ".transifex")
                     if os.path.exists(transifex_cfg_path):
-                        os.system("{} docker cp {} fed_stream_node_counterwallet_1:/root/.transifex".format(SUDO_CMD, transifex_cfg_path))
-                    os.system("{} docker exec -i -t fed_stream_node_counterwallet_1 bash -c \"cd /counterwallet/src ".format(SUDO_CMD) +
+                        os.system("{} docker cp {} federated_node_counterwallet_1:/root/.transifex".format(SUDO_CMD, transifex_cfg_path))
+                    os.system("{} docker exec -i -t federated_node_counterwallet_1 bash -c \"cd /counterwallet/src ".format(SUDO_CMD) +
                               "&& bower --allow-root update && cd /counterwallet && npm update && grunt build\"")
                     if not os.path.exists(transifex_cfg_path):
                         print("NOTE: Did not update locales because there is no .transifex file in your home directory")
