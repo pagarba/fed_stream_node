@@ -24,9 +24,15 @@ $ cd fed_stream_node
 - Verify if connecting
    
    ` curl http://localhost:5000/get-devices/####SOMEKEY#### '
+    *
+    *
+    *
+ 
    
-   
-   **** A more Detailed README and how-to on Counterparty, Docker, Streamiot
+
+
+
+*- *** A more Detailed README and how-to on Counterparty, Docker, Streamiot
    
    https://github.com/streamchain-iot/fed_stream_node/blob/master/README_Detailed.md
    
