@@ -1,6 +1,6 @@
 
 ## fed_stream_node   
-### register and watch all your IOT devices on the blockchain
+### register and write IOT device data on the blockchain
 
 
 **Stack:**
