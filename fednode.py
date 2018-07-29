@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.5
 '''
-fednode.py: script to set up and manage a Counterparty federated node
+fednode.py: script to set up and manage a streamiot Counterparty federated node
 '''
 
 import sys
@@ -16,7 +16,7 @@ import shutil
 import json
 
 
-VERSION="0.1.1"
+VERSION="2.2.3"
 
 PROJECT_NAME = "federatednode"
 CURDIR = os.getcwd()
@@ -160,7 +160,7 @@ def setup_env():
 
 def is_container_running(service, abort_on_not_exist=True):
     try:
-        container_running = subprocess.check_output('{} docker inspect --format="{{{{ .State.Running }}}}" stream_fed_node_{}_1'.format(SUDO_CMD, service), shell=True).decode("utf-8").strip()
+        container_running = subprocess.check_output('{} docker inspect --format="{{{{ .State.Running }}}}" federatednode_{}_1'.format(SUDO_CMD, service), shell=True).decode("utf-8").strip()
         container_running = container_running == 'true'
     except subprocess.CalledProcessError:
         container_running = None
