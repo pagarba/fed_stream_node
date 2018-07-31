@@ -2,6 +2,7 @@
 # device demons of epic legandary counterparty blockchain streaming proportions... chris b peter j  devices.py
 
 from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 import json
 import requests
 from requests.auth import HTTPBasicAuth
@@ -36,28 +37,8 @@ DRONE_PRV = 'cTFERWg7GLkvmJYi5AUowEYJtoNAmdj3FZigUdWjqJ7L2ZFHPBPz'
 OTHER_PUB = 'mqH3jBrp3b5yWQAJ3wQCJyXkvp4nvq6J2U'
 OTHER_PRV = 'cQxnzLmUQPPuocLKHuk9JgTgAnWdg61qXD518TxjFu14CuDCKxVa'
 
-try:
-    # The typical way to import flask-cors
-    from flask.ext.cors import CORS, cross_origin
-except ImportError:
-    # Path hack allows examples to be run without installation.
-    import os
-    parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    os.sys.path.insert(0, parentdir)
-
-    from flask.ext.cors import CORS, cross_origin
-
 app = Flask(__name__)
-
-# Set CORS options on app configuration
-app.config['CORS_HEADERS'] = "Content-Type"
-app.config['CORS_RESOURCES'] = {r"/api/*": {"origins": "*"}}
-
-cors = CORS(app)
-
-## Equivalent to (but using both is not advised)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}},
-            headers="Content-Type")
+@cross_origin(origin='*')
 
 #Input: formated issuance paramaters
 #returns response from counterparty server
