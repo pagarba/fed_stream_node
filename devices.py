@@ -2,12 +2,10 @@
 # device demons of epic legandary counterparty blockchain streaming proportions... chris b peter j  devices.py
 
 from flask import Flask, jsonify, request
-from flask_cors import CORS, cross_origin
 import json
 import requests
 from requests.auth import HTTPBasicAuth
 import time
-import os
 
  
 
@@ -47,9 +45,6 @@ OTHER_PRV = 'cQxnzLmUQPPuocLKHuk9JgTgAnWdg61qXD518TxjFu14CuDCKxVa'
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/": {"origins": "*"})
-@@app.route('/', methods=['POST','GET'])
-
 #Input: formated issuance paramaters
 #returns response from counterparty server
 def counterparty_api_issuance(params):
