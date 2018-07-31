@@ -1,7 +1,7 @@
 version: '2'
  
 services:
-  device_test_1:
+  streamiot_mvp_1:
     restart: always
     build: .
     ports:
