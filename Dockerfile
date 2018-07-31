@@ -26,6 +26,7 @@ RUN pip3 install --trusted-host pypi.python.org -r /tmp/requirements.txt
 RUN apk update
 RUN apk add nodejs
 RUN apk add npm
+RUN pip install Flask-Cors
 RUN apk update
 RUN npm install bitcore-mnemonic
 RUN rm -r /tmp/requirements.txt
