@@ -7,8 +7,9 @@ import json
 import requests
 from requests.auth import HTTPBasicAuth
 import time
+import os
 
-
+ 
 
 ##########################################
 #Counterparty endpoint (default: coindaddy)
@@ -46,6 +47,8 @@ OTHER_PRV = 'cQxnzLmUQPPuocLKHuk9JgTgAnWdg61qXD518TxjFu14CuDCKxVa'
 
 
 app = Flask(__name__)
+CORS(app, resources={r"/": {"origins": "*"})
+@@app.route('/', methods=['POST','GET'])
 
 #Input: formated issuance paramaters
 #returns response from counterparty server
