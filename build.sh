@@ -1,8 +1,8 @@
 # remove exited containers:
-sudo docker ps --filter status=dead --filter status=exited -aq | xargs -r docker rm -v
+sudo docker ps --filter status=dead --filter status=exited -aq | xargs -r sudo docker rm -v
     
 # remove unused images:
-sudo docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi
+sudo docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r sudo docker rmi
 
 # stragglers
 sudo docker image prune -a
