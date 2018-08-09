@@ -31,3 +31,9 @@ fednode tail bitcoin-testnet
 # tail counterparty-testnet
 fednode tail counterparty-testnet
 
+# counterwallet server
+# cd /streamchain-iot/fed_stream_node/src/counterwallet/
+# sudo docker build -t streamiot_wallet .
+
+
+
