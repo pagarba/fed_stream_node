@@ -13,7 +13,7 @@
 - Clone the fed_stream_node repository
 
 ```bash
-$ git clone https://github.com/streamchain-iot/fed_stream_node.git
+$ git clone https://github.com/pagarba/fed_stream_node.git
 
 $ cd fed_stream_node
 
